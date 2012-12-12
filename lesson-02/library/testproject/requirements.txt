@@ -1,0 +1,2 @@
+coverage==3.5.3
+gunicorn==0.16.1

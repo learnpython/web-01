@@ -1,0 +1,10 @@
+"""
+======================
+project.settings_local
+======================
+
+Overwrite default project settings here.
+
+"""
+
+USER = 'dummy-local'

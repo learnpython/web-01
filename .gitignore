@@ -1,1 +1,8 @@
 *.pyc
+*.pyo
+
+.coverage
+
+env/
+
+settings_local.py
