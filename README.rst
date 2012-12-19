@@ -21,3 +21,8 @@ environment, pip installs packages.
 
 Intro to SCM and VCS, Git is our DVCS to use, structure of Python project and
 Python library, introduction of bootstrapper.
+
+3. WSGI & DB-API
+----------------
+
+How Python connects to web-servers and databases.
