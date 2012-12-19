@@ -5,4 +5,5 @@
 
 env/
 
+learnpython.db
 settings_local.py
