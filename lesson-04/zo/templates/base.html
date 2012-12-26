@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>{% block title %}Zapis Online{% endblock %}</title>
+  <meta charset="utf-8">
+
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+  <link href="{% static "shared/bootstrap-2.2.2/css/bootstrap.css" %}" rel="stylesheet">
+  <link href="{% static "shared/bootstrap-2.2.2/css/bootstrap-responsive.css" %}" rel="stylesheet">
+
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="{% url index %}">Zapis Online</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          {% block userbar %}
+            {% if user.is_authenticated %}
+            <div class="navbar-text pull-right">
+              Hello, {{ user.username }}!
+              <a href="{% url logout %}">Logout</a>
+            </div>
+            {% else %}
+            <form action="{% url login %}" class="navbar-form pull-right" method="post">
+              {% csrf_token %}
+              <input class="span2" name="username" type="text" placeholder="Username">
+              <input class="span2" name="password" type="password" placeholder="Password">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            {% endif %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="hero-unit">{% block content %}{% endblock %}</div>
+
+    <hr>
+
+    <footer>
+      <p>&copy; Learn Python</p>
+    </footer>
+
+  </div>
+
+  {% block extra_body %}{% endblock %}
+
+</body>
+
+</html>

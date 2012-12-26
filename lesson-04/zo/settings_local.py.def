@@ -1,0 +1,6 @@
+# Debug settings
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+# Other Django settings
+SECRET_KEY = '\xdc\xd4\x98\x11x\x90\x95\xfb\xf1\xc5\x92v\xcd#\xd6\xd8'

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+  {% if not user.is_authenticated or not company_page %}<h1>{{ page.title }}</h1>
+  {{ page.content|safe }}
+
+  <br>{% endif %}
+
+  {% if user.is_authenticated and company_page %}
+    <h1>{{ company_page.title }}</h1>
+    <p>{{ company_page.content|safe }}</p>
+  {% elif user.is_authenticated %}
+    <h3>Available companies</h3>
+    {% if companies %}
+    <dl>
+    {% for company in companies %}
+      <dt>{{ company.company }}</dt>
+      <dd>{{ company.user.email }}</dd>
+    {% endfor %}
+    </dl>
+    {% else %}
+    <div class="alert"><p>No companies available in database.</p></div>
+    {% endif %}
+  {% else %}
+    {% include "users/register_form.html" %}
+  {% endif %}
+
+{% endblock %}

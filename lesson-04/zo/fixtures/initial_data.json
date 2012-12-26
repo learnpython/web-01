@@ -1,0 +1,31 @@
+[
+    {
+        "model": "auth.User",
+        "pk": 1,
+        "fields": {
+            "username": "admin",
+            "email": "admin@zozozo.com",
+            "password": "pbkdf2_sha256$10000$20B3mkw9LiJp$AbXushzf4tQCoHgdm/7b+DK4Y52gFhudN+qUeeBK8U4=",
+            "is_superuser": true,
+            "is_staff": true
+        }
+    },
+    {
+        "model": "sites.Site",
+        "pk": 1,
+        "fields": {
+            "name": "Zapis Online",
+            "domain": "zozozo.com"
+        }
+    },
+    {
+        "model": "flatpages.FlatPage",
+        "pk": 1,
+        "fields": {
+            "url": "/",
+            "title": "Hello, world!",
+            "content": "<p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>\n<p><a class=\"btn btn-primary btn-large\">Learn more &raquo;</a></p>",
+            "sites": [1]
+        }
+    }
+]

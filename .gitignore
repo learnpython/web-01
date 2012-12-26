@@ -4,6 +4,8 @@
 .coverage
 
 env/
+lesson-04/static/
 
 learnpython.db
 settings_local.py
+zo.db

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block userbar %}{% endblock %}
+{% block content %}
+
+  <form action="" class="form form-horizontal" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Login</legend>
+
+      {% if form.errors or form.non_field_errors %}
+      <div class="alert alert-error">{% if form.non_field_errors %}
+          {{ form.non_field_errors|join:"<br>" }}
+      {% else %}
+          Please, fix errors below:
+      {% endif %}</div>
+      {% endif %}
+
+      <div class="control-group{% if form.username.errors %} error{% endif %}">
+        <label class="control-label" for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+        <div class="controls">
+          {{ form.username }}
+          {% if form.username.errors %}<span class="help-inline">{{ form.username.errors|join:"<br>" }}</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="control-group{% if form.username.errors %} error{% endif %}">
+        <label class="control-label" for="{{ form.password.auto_id }}">{{ form.password.label }}</label>
+        <div class="controls">
+          {{ form.password }}
+          {% if form.password.errors %}<span class="help-inline">{{ form.password.errors|join:"<br>" }}</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <span class="help-inline"><a href="{% url register %}">Or register for free</a></span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </fieldset>
+  </form>
+
+{% endblock %}

@@ -26,3 +26,9 @@ Python library, introduction of bootstrapper.
 ----------------
 
 How Python connects to web-servers and databases.
+
+4. Hello, Django!
+-----------------
+
+Create our first Django web-project with static files handling, user
+registration and authentication.

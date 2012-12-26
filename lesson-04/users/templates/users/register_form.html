@@ -1,0 +1,80 @@
+<form action="{% url register %}" class="form form-horizontal" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Register for free</legend>
+
+    {% if form.errors or form.non_field_errors %}
+    <div class="alert alert-error">{% if form.non_field_errors %}
+      {{ form.non_field_errors|join:"<br>" }}
+    {% else %}
+      Please fix errors below:
+    {% endif %}</div>
+    {% endif %}
+
+    <div class="control-group{% if form.username.errors %} error{% endif %}">
+      <label class="control-label" for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+      <div class="controls">
+        {{ form.username }}
+        {% if form.username.errors %}<span class="help-inline">{{ form.username.errors|join:"<br>" }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="control-group{% if form.email.errors %} error{% endif %}">
+      <label class="control-label" for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
+      <div class="controls">
+        {{ form.email }}
+        {% if form.email.errors %}<span class="help-inline">{{ form.email.errors|join:"<br>" }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="control-group{% if form.password.errors %} error{% endif %}">
+      <label class="control-label" for="{{ form.password.auto_id }}">{{ form.password.label }}</label>
+      <div class="controls">
+        {{ form.password }}
+        {% if form.password.errors %}<span class="help-inline">{{ form.password.errors|join:"<br>" }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="control-group{% if form.repeat.errors %} error{% endif %}">
+      <label class="control-label" for="{{ form.repeat.auto_id }}">{{ form.repeat.label }}</label>
+      <div class="controls">
+        {{ form.repeat }}
+        {% if form.repeat.errors %}<span class="help-inline">{{ form.repeat.errors|join:"<br>" }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="control-group{% if form.is_company.errors %} error{% endif %}">
+      <div class="controls">
+        <label class="checkbox" for="{{ form.is_company.auto_id }}">
+          {{ form.is_company }}
+          {{ form.is_company.label }}
+          {% if form.is_company.errors %}<span class="help-inline">{{ form.is_company.errors|join:"<br>" }}</span>{% endif %}
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group{% if form.company.errors %} error{% endif %}" id="{{ form.company.auto_id }}-group">
+      <label class="control-label" for="{{ form.company.auto_id }}">{{ form.company.label }}</label>
+      <div class="controls">
+        {{ form.company }}
+        {% if form.company.errors %}<span class="help-inline">{{ form.company.errors|join:"<br>" }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-success">Register</button>
+    </div>
+  </fieldset>
+</form>
+
+<script type="text/javascript"><!--
+  var checkbox = document.getElementById("{{ form.is_company.auto_id }}");
+  var group = document.getElementById("{{ form.company.auto_id }}-group");
+
+  var toggleNameGroup = function() {
+    group.style.display = (checkbox.checked) ? "block" : "none";
+  }
+
+  checkbox.onclick = toggleNameGroup;
+  toggleNameGroup();
+--></script>
