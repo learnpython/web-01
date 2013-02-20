@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>{% block title %}Zapis Online{% endblock %}</title>
+  <meta charset="utf-8">
+
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+  <link href="{% static "shared/bootstrap-2.2.2/css/bootstrap.css" %}" rel="stylesheet">
+  <link href="{% static "shared/bootstrap-2.2.2/css/bootstrap-responsive.css" %}" rel="stylesheet">
+
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="{% url index %}">Zapis Online</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        {% block navbar_search %}
+        <form action="{% url haystack_search %}" class="form-search navbar-form pull-right" method="get">
+          <input name="models" type="hidden" value="bookmarks.bookmark">
+          <input class="input-large search-query" name="q" placeholder="{{ _("Search") }}" type="text">
+        </form>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    {% block content %}{% endblock %}
+
+    <hr>
+
+    <footer>
+      <p>&copy; Learn Python</p>
+    </footer>
+
+  </div>
+
+  {% block extra_body %}{% endblock %}
+
+</body>
+
+</html>

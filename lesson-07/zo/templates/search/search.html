@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block navbar_search %}{% endblock %}
+{% block content %}
+
+  <form action="" class="form form-horizontal" method="get">
+    <fieldset>
+    {% for f in form %}
+      <div class="control-group">
+        <label class="control-label" for="{{ f.auto_id }}">{{ f.label }}</label>
+        <div class="controls">
+          {{ f }}
+        </div>
+      </div>
+    {% endfor %}
+    </fieldset>
+  </form>
+
+  {% if query %}
+  <hr>
+
+    {% if page.object_list %}
+    <dl>
+      {% for result in page.object_list %}
+      <dt><a href="{{ result.object.url }}">{{ result.object.title }}</a></dt>
+      <dd>{{ result.object.description }}</dd>
+      {% endfor %}
+    </dl>
+    {% else %}
+    <div class="alert alert-warning">
+      <h3>{{ _("Warning") }}</h3>
+      <p>{{ _("No objects found by your query.") }}</p>
+    </div>
+    {% endif %}
+  {% endif %}
+
+{% endblock %}

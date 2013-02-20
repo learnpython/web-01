@@ -32,3 +32,9 @@ How Python connects to web-servers and databases.
 
 Create our first Django web-project with static files handling, user
 registration and authentication.
+
+7. Reusabble apps
+-----------------
+
+Configure Django web-project with well-used reusabble apps, like Grappelli,
+Haystack, Debug Toolbar and other.

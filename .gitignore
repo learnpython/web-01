@@ -5,6 +5,8 @@
 
 env/
 lesson-04/static/
+lesson-07/static/
+lesson-07/whoosh_index
 
 learnpython.db
 settings_local.py

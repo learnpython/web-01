@@ -1,0 +1,38 @@
+[
+    {
+        "model": "bookmarks.Bookmark",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "title": "Google",
+            "url": "http://www.google.com/"
+        }
+    },
+    {
+        "model": "bookmarks.Bookmark",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "title": "Yandex",
+            "url": "http://www.yandex.ru/"
+        }
+    },
+    {
+        "model": "bookmarks.Bookmark",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "title": "Bing",
+            "url": "http://www.bing.com/"
+        }
+    },
+    {
+        "model": "bookmarks.Bookmark",
+        "pk": 4,
+        "fields": {
+            "user": 1,
+            "title": "Yahoo",
+            "url": "http://www.yahoo.com/"
+        }
+    }
+]

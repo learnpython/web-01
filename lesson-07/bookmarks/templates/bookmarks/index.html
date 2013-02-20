@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+  {% if bookmarks %}
+  <dl>
+    {% for bookmark in bookmarks %}
+    <dt><a href="{{ bookmark.url }}">{{ bookmark.title }}</a></dt>
+    <dd>{{ bookmark.description|safe }}</dd>
+    {% endfor %}
+  </dl>
+  {% else %}
+  <div class="alert alert-warning">
+    <h3>{{ _("Warning") }}</h3>
+    <p>{{ _("No bookmarks found in database.") }}</p>
+  </div>
+  {% endif %}
+
+{% endblock %}

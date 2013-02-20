@@ -1,0 +1,21 @@
+[
+    {
+        "model": "auth.User",
+        "pk": 1,
+        "fields": {
+            "username": "admin",
+            "email": "admin@zozozo.com",
+            "password": "pbkdf2_sha256$10000$20B3mkw9LiJp$AbXushzf4tQCoHgdm/7b+DK4Y52gFhudN+qUeeBK8U4=",
+            "is_superuser": true,
+            "is_staff": true
+        }
+    },
+    {
+        "model": "sites.Site",
+        "pk": 1,
+        "fields": {
+            "name": "Zapis Online",
+            "domain": "zozozo.com"
+        }
+    }
+]
