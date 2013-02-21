@@ -1,10 +1,13 @@
 Django==1.4.4
+Pygments==1.6
 South==0.7.6
 Whoosh==2.4.1
 django-annoying==0.7.7
 django-debug-toolbar==0.9.4
 django-extensions==1.0.3
 django-grappelli==2.4.3
+django-filebrowser==3.5.1
 docutils==0.10
 
-http://github.com/toastdriven/django-haystack/tarball/master#egg=django-haystack
+http://effbot.org/downloads/Imaging-1.1.7.tar.gz#egg=PIL
+https://github.com/toastdriven/django-haystack/tarball/master#egg=django-haystack

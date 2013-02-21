@@ -3,6 +3,7 @@ import os
 
 DIRNAME = os.path.abspath(os.path.dirname(__file__))
 rel = lambda *parts: os.path.abspath(os.path.join(DIRNAME, *parts))
+_ = lambda s: s
 
 # Debug settings
 DEBUG = False
@@ -30,7 +31,9 @@ TIME_ZONE = 'Europe/Kiev'
 
 # List of installed applications
 INSTALLED_APPS = (
+    'grappelli.dashboard',
     'grappelli',
+    'filebrowser',
 
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -83,7 +86,7 @@ LOGGING = {
     }
 }
 
-# Media and static files settings
+# Filebrowser, media and static files settings
 MEDIA_ROOT = rel('..', 'media')
 MEDIA_URL = '/media/'
 
@@ -105,6 +108,16 @@ MIDDLEWARE_CLASSES = (
 )
 
 # Template settings
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+)
 TEMPLATE_DIRS = (
     rel('templates'),
 )
@@ -120,11 +133,15 @@ SECRET_KEY = 'please, set proper value in settings_local.py'
 SITE_ID = 1
 WSGI_APPLICATION = 'zo.wsgi.application'
 
+# Grappelli settings
+GRAPPELLI_ADMIN_TITLE = _('Zapis Online')
+GRAPPELLI_INDEX_DASHBOARD = 'zo.admin.AdminDashboard'
+
 # Haystack settings
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': rel('whoosh_index'),
+        'PATH': rel('..', 'whoosh_index'),
         'INCLUDE_SPELLINGS': True,
     },
 }
