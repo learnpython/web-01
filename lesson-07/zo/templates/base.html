@@ -2,7 +2,7 @@
 {% load static %}
 <html>
 <head>
-  <title>{% block title %}Zapis Online{% endblock %}</title>
+  <title>{% block title %}{{ _("Zapis Online") }}{% endblock %}</title>
   <meta charset="utf-8">
 
   <link href="{% static "css/style.css" %}" rel="stylesheet">
@@ -17,11 +17,11 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="{% url index %}">Zapis Online</a>
+        <a class="brand" href="{% url index %}">{{ _("Zapis Online") }}</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">{{ _("About") }}</a></li>
+            <li><a href="#contact">{{ _("Contact") }}</a></li>
           </ul>
         </div>
         {% block navbar_search %}
@@ -41,7 +41,7 @@
     <hr>
 
     <footer>
-      <p>&copy; Learn Python</p>
+      <p>&copy; {{ _("Learn Python") }}</p>
     </footer>
 
   </div>
